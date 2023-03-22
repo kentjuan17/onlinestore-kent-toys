@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kent's Toy Store</title>
+    <link rel="stylesheet" href="./main-style.css" />
+    <script
+      src="https://kit.fontawesome.com/c64a0cc3b0.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body onload="firstPageLoad()">
+    <div id="wrap">
+      <header class="main-header">
+        <nav class="nav-bar">
+          <ul>
+            <li class="nav-item"><span class="site-name">Kent's Toys</span></li>
+            <li class="nav-item"><a href="#">Home</a></li>
+            <li class="nav-item"><a href="#products">Products</a></li>
+            <li class="nav-item"><a href="#contact">Contact Us</a></li>
+            <li class="nav-item nav-toggle-cart" onclick="viewCart()">
+              <i class="fas fa-shopping-cart"></i>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section class="home-banner">
+          <h1 class="welcome-banner title-style">Welcome to our Store</h1>
+          <button id="shop-now"><a href="#products">Shop Now 🛒</a></button>
+        </section>
+        <section class="product-banner">
+            <fieldset>
+              <div class="product-banner-container">
+                <h2 id="products" class="title-style">Our Products</h2>
+                <div class="product-navigation">
+                  <span id="date-text"
+                  >Date and Time: <span id="date-time"></span
+                ></span>
+                  <label for="product-category">Select Category:</label>
+                  <select
+                    name="product-category"
+                    id="product-category"
+                    onchange="displayStoreItems()"
+                  >
+                    <option value="All" selected>All</option>
+                    <option value="Building Sets & Blocks">Building Sets & Blocks</option>
+                    <option value="Educational Toys">Educational Toys</option>
+                    <option value="Plush & Stuff Toys">Plush & Stuff Toys</option>
+                  </select>
+                  <label for="currency">Currency: </label>
+                  <select id="currency" name="currency" onchange="changeCurrency()">
+                    <option value="CAD" selected>CAD</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                    <option value="PHP">PHP</option>
+                  </select>
+                </div>
+              </div>
+              <div class="product-list"></div>
+            </fieldset>
+        </section>
+        <section>
+          <div id="product-modal" class="modal product-modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2 id="product-page-brand">Basic Fun</h2>
+              </div>
+              <div class="container modal-main">
+                <div class="modal-product-image">
+                  <img
+                  src="./img/products/educational/imaginariumClassicCountryDollHouse.jpg"
+                  alt=""
+                  id="product-page-image"
+                  class="p-page-image"
+                />
+                </div>
+                <div class="modal-product-heading">
+                  <h2 id="product-page-name" class="colored-heading">
+                    This is a toy's name
+                  </h3>
+                  <p id="product-page-id">ID:</p>
+                  <p id="product-page-price">Price: CAD 19.99</p>
+                  <p id="product-page-category">Category: Educational Toys</p>
+                  <p id="product-page-order-quantity">Max Order Quantity: </p>
+                  <p id="product-page-shipping">Shipping Cost: </p>
+                  <p id="product-page-age">Age: </p>
+                </div>
+                <div class="modal-product-info">
+                  <h3>Description</h3>
+                  <p id="product-page-description" class="modal-product-description">Description
+                  </p>
+                  <br>
+                  <h3>Reviews</h3>
+                  <div id="product-page-reviews">Review here</div>
+                  <div class="review-section">
+                    <div id="review" class="container review-div">
+                    </div>
+                    <div id="review-window" class="review-content hidden">
+                      <textarea name="review" id="review-textarea" cols="30" rows="10" placeholder="Your review here"></textarea>
+                      <button id="review-submit" class="review-btn">Post Review</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div id="cart-modal" class="modal cart-modal">
+            <div class="modal-content cart-modal-content">
+              <div class="modal-header">
+                <span class="close" onclick="closeCart()">&times;</span>
+                <h2 id="cart-modal-heading">Cart</h2>
+              </div>
+              <div id="cart-window" class="modal-container">
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <div class="footer-container">
+          <h3>Front End Web Development and JavaScript Project</h3>
+          <div id="contact">
+            <span>by: Kent Juan</span>
+            <span><a href="mailto:k_juan@fanshaweonline.ca">k_juan@fanshaweonline.ca</a></span>
+            <span>December 2021</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
